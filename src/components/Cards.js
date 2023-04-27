@@ -5,6 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardData from './CardsData';
+import { useDispatch } from 'react-redux';
+import { ADD } from '../redux/actions/action';
+
 const Cards = () => {
     const [data, setData] = useState(CardData);
     //console.log(data);
@@ -15,6 +18,11 @@ const Cards = () => {
         return chunks;
     };
 
+    const dispatch = useDispatch();
+    const send = (items) => {
+        //console.log(items);
+        dispatch(ADD(items));
+    }
     return (
         <div>
             <div className='container mt-4'>
@@ -33,7 +41,7 @@ const Cards = () => {
                                                 <Card.Text>
                                                     {col.somedata}
                                                 </Card.Text>
-                                                <Button variant="primary"><i className="fa-solid fa-cart-shopping text-light fa-xl"></i></Button>
+                                                <Button variant="primary" onClick={() => send(col)}><i className="fa-solid fa-cart-shopping text-light fa-xl"></i></Button>
                                             </Card.Body>
                                         </Card>
                                     </Col>

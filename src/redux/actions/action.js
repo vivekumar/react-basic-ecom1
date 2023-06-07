@@ -11,3 +11,14 @@ export const DEL = (id) => {
         payload: id
     }
 }
+
+export const incNumber = () => {
+    return {
+        type: "INCREMENT",
+    }
+}
+export const decNumber = () => {
+    return {
+        type: "DECREMENT",
+    }
+}

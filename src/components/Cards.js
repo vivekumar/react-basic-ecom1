@@ -30,10 +30,11 @@ const Cards = () => {
 
                 {
                     arrayChunk(data, 4).map((row, id) => {
-                        return (<>
-                            <Row className="mb-3">
+                        return (
+                            <Row className="mb-3 " key={id}>
                                 {row.map((col, i) => (
-                                    <Col>
+
+                                    <Col key={i}>
                                         <Card >
                                             <Card.Img variant="top" src={col.imgdata} style={{ maxHeight: '200px', maxWidth: 'auto' }} />
                                             <Card.Body>
@@ -47,7 +48,7 @@ const Cards = () => {
                                     </Col>
                                 ))}
                             </Row>
-                        </>)
+                        )
                     })
                 }
 

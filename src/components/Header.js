@@ -14,7 +14,7 @@ const Header = () => {
 
     const [price, setPrice] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
-    
+
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -87,27 +87,27 @@ const Header = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            getdata.map((e) => {
+                                            getdata.map((e, i) => {
                                                 return (
-                                                    <>
-                                                        <tr>
-                                                            <td>
-                                                                <Nav.Link as={Link} to={`/cart/${e.id}`} onClick={handleClose} ><img src={e.imgdata} style={{ width: "5rem", height: "5rem" }} alt="" /></Nav.Link>
-                                                            </td>
-                                                            <td>
-                                                                <p>{e.rname}</p>
-                                                                <p>Price : ₹{e.price}</p>
-                                                                <p>Quantity : {e.qnty}</p>
-                                                                <p style={{ color: "red", fontSize: 20, cursor: "pointer" }} onClick={() => del(e.id)}>
-                                                                    <i className='fas fa-trash smalltrash'></i>
-                                                                </p>
-                                                            </td>
 
-                                                            <td className='mt-5' style={{ color: "red", fontSize: 20, cursor: "pointer" }} onClick={() => del(e.id)}>
-                                                                <i className='fas fa-trash largetrash'></i>
-                                                            </td>
-                                                        </tr>
-                                                    </>
+                                                    <tr key={i}>
+                                                        <td>
+                                                            <Nav.Link as={Link} to={`/cart/${e.id}`} onClick={handleClose} ><img src={e.imgdata} style={{ width: "5rem", height: "5rem" }} alt="" /></Nav.Link>
+                                                        </td>
+                                                        <td>
+                                                            <p>{e.rname}</p>
+                                                            <p>Price : ₹{e.price}</p>
+                                                            <p>Quantity : {e.qnty}</p>
+                                                            <p style={{ color: "red", fontSize: 20, cursor: "pointer" }} onClick={() => del(e.id)}>
+                                                                <i className='fas fa-trash smalltrash'></i>
+                                                            </p>
+                                                        </td>
+
+                                                        <td className='mt-5' style={{ color: "red", fontSize: 20, cursor: "pointer" }} onClick={() => del(e.id)}>
+                                                            <i className='fas fa-trash largetrash'></i>
+                                                        </td>
+                                                    </tr>
+
                                                 )
                                             })
                                         }
